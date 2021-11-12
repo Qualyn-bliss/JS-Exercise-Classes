@@ -135,8 +135,8 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian{
-  constructor({name, age, location, specialty, favLanguage, catchPhrase})
-  super({name, age, location})
+  constructor({name, age, location, specialty, favLanguage, catchPhrase}){
+  super({name, age, location, specialty, favLanguage, catchPhrase});
    this.specialty = specialty;
    this.favLanguage = favLanguage;
    this.catchPhrase = catchPhrase;
@@ -145,7 +145,7 @@ class Instructor extends Lambdasian{
     return `Today we are Learning about ${subject}`;
   }
   grade(student, subject){
-    return `${student} receives a perfect score on ${subject}`
+    return `${student.name} receives a perfect score on ${subject}`
   }
 }
 
@@ -165,11 +165,11 @@ class Instructor extends Lambdasian{
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian {
-  constructor(attrs){
-    super(attrs);
-    this.previousBackground = attrs.previousBackground;
-    this.className = attrs.className;
-    this.favSubjects = attrs.favSubjects;
+  constructor({name, age, location, previousBackground, className, favSubjects}){
+    super({name, age, location, previousBackground, className, favSubjects});
+    this.previousBackground = previousBackground;
+    this.className = className;
+    this.favSubjects = favSubjects;
   }
   listSubjects(){
     return `Loving ${this.favSubjects}`;
@@ -196,16 +196,16 @@ class Student extends Lambdasian {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager extends Instructor{
-  constructor(attrs){
-    super(attrs);
-    this.gradClassName = attrs.gradClassName;
-    this.favInstructor = attrs.favInstructor;
+  constructor({name, age, location, specialty, favLanguage, catchPhrase,gradClassName, favInstructor}){
+    super({name, age, location, specialty, favLanguage, catchPhrase,gradClassName, favInstructor});
+    this.gradClassName = gradClassName;
+    this.favInstructor = favInstructor;
   }
   standUp(channel){
     return `${this.name} announces to ${channel}, @channel standy times!`
   }
   debugsCode(student, subject){
-    `${this.name} debugs ${student}'s code on ${subject}`
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
   }
 }
 /*
